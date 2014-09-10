@@ -8,3 +8,7 @@
 th {
   text-align: left;
 }
+
+.show_games li{
+  list-style-type: none;
+}

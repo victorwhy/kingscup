@@ -2,7 +2,6 @@ redirect_uri = "http://localhost:9393/oauth2callback"
 SCOPES = "https://www.googleapis.com/auth/plus.login"
 
 get '/' do
-  # Look in app/views/index.erb
   erb :index
 end
 
@@ -19,13 +18,14 @@ get '/oauth2callback' do
   response = token.get 'https://www.googleapis.com/oauth2/v1/userinfo?alt=json'
   @user_info = JSON.parse(response.body)
 
-  # session[:current_user] = @user
+  binding.pry
+  @user = User.find_or_create_by(google_id: @user_info["id"], google_pic: @user_info["picture"], profile_link: @user_info["link"], name: @user_info["name"])
+  session[:current_user] = @user.id
   
-  erb :success
+  redirect '/game'
 end
 
 get '/sign_out' do 
-  session.delete(:access_token)
   session.clear
   redirect '/'
 end
