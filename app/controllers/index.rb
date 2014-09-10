@@ -18,7 +18,6 @@ get '/oauth2callback' do
   response = token.get 'https://www.googleapis.com/oauth2/v1/userinfo?alt=json'
   @user_info = JSON.parse(response.body)
 
-  binding.pry
   @user = User.find_or_create_by(google_id: @user_info["id"], google_pic: @user_info["picture"], profile_link: @user_info["link"], name: @user_info["name"])
   session[:current_user] = @user.id
   
