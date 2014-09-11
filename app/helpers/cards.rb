@@ -1,14 +1,13 @@
-def find_card(card)
+def find_cardid(card)
   value = card[:value].to_i
-  if card[:suit] = "D"
+  if card["suit"] == "D"
     suit = "diamonds"
-  elsif card[:suit] = "C"
+  elsif card["suit"] == "C"
     suit =  "clubs"
-  elsif card[:suit] = "H"
+  elsif card["suit"] == "H"
     suit =  "hearts"
-  else
+  elsif card["suit"] == "S"
     suit = "spades"
   end
-  
-  Card.find_by(value: value, suit: suit)
+  cardid = Card.where(value: value, suit: suit).first.id
 end

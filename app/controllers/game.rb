@@ -49,21 +49,21 @@ get '/game/:id' do
 end
 
 post '/game/:id' do
-
+  cardarray = []
   for i in 0..(params[:players].length-1)
     player_id = params[:players][i.to_s][:id].to_i
     cards = params[:players][i.to_s][:cards]
     game_id = session[:game]
 
     cards.each do |card|
-      card_id = find_card(card[1]).id
-      sessions = Session.find_by(game_id: game_id, card_id: card_id)
-      sessions.player_id = player_id
-      # binding.pry
-      sessions.save
+      card_id = find_cardid(card[1])
+      cardarray << card_id
+      sessions = Session.where(game_id: game_id, card_id: card_id)
+      sessions[0].update(player_id: player_id)
     end
   end
-  redirect '/game'
+  binding.pry
+  redirect '/game/finish'
 end
 
 # players.each_with_object {} do |player, game_object|
