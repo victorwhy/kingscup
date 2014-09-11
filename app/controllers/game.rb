@@ -29,14 +29,18 @@ get '/game/new' do
   erb :'/game/new'
 end
 
-get '/game/test' do
-  erb :'/game/play'
+get '/game/finish' do
+  session[:game] = nil
+  erb :'/game/show'
 end
+# get '/game/test' do
+#   erb :'/game/play'
+# end
 
 get '/game/:id' do
   game = Game.find(params[:id])
   @players = game.players
-  @players.to_json
+  @players.uniq.to_json
 
   # @game_object = players.each_with_object({}) do |player, game_hash|
   #   game_hash[player.name] = player.cards
