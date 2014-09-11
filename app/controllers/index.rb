@@ -2,6 +2,7 @@ redirect_uri = "http://localhost:9393/oauth2callback"
 SCOPES = "https://www.googleapis.com/auth/plus.login"
 
 get '/' do
+  session.clear
   erb :index
 end
 
