@@ -65,19 +65,51 @@ gameArray = gameArray.shuffle()
 
 function nextCard(){
   card = gameArray.pop();
+  if(card.imgValue === 'K'){
+    kings.push(card);
+  }
+  players[currentPlayer].cards.push(card);
+  ruleHover(card.value);
   imageText = card.imgValue + card.suit + '.svg';
   return '<img src = "/images/' + imageText + '">';
 }
 
-function Player(name){
-  this.name = name;
+function incrementPlayer(){
+  if(currentPlayer === players.length-1){
+    currentPlayer = 0;
+  }else{
+    currentPlayer++;
+    console.log(currentPlayer);
+  }
+};
+
+function ruleHover(cardValue){
+  $('#rules li').css("background-color", "black");
+  $('#rules ul #'+cardValue).css("background-color", "#00CCCC");
 }
 
-function Card(suit, value){
-  this.suit = suit;
-  this.value = value;
-  this.imgValue = alpha(value);
-}
+function playerHover(currentplayer){
+  playerid = players[currentplayer].id
+  $('#players li').css("background-color", "black");
+  $('#players ul #'+playerid).css("background-color", "#00CCCC");
+};
+
+function gameOver(){
+  if(kings.length ===4){
+    alert(players[currentPlayer].name + ' has got the last King! Bottoms up!')
+    console.log(players)
+    $.ajax({
+      url: '/game/'+$('#playscreen').data("gameid"),
+      type: 'POST',
+      dataType: 'json',
+      data: {players: players}
+    }).done(function(response){
+      
+    }).fail(function(response){
+      console.log('FAIL');
+    });
+  }
+};
 
 //helpers
 function alpha(value){
