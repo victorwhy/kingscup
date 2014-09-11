@@ -45,19 +45,20 @@ get '/game/:id' do
 end
 
 post '/game/:id' do
-  
+
   for i in 0..(params[:players].length-1)
     player_id = params[:players][i.to_s][:id].to_i
     cards = params[:players][i.to_s][:cards]
-    
+    game_id = session[:game]
+
     cards.each do |card|
       card_id = find_card(card[1]).id
-      sessions = Session.find_by(game_id: session[:game], card_id: card_id)
+      sessions = Session.find_by(game_id: game_id, card_id: card_id)
       sessions.player_id = player_id
+      # binding.pry
       sessions.save
     end
   end
-  session[:game] = nil
   redirect '/game'
 end
 
