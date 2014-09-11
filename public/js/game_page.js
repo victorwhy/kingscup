@@ -1,13 +1,14 @@
 $(document).ready(function() {
   $('li a').click(function(event){
-    event.preventDefault
+    event.preventDefault;
+    gameId= $(this).data("gameid");
+    console.log(gameId);
     $.ajax({
-      url: '/game/'+$(this).data("gameid"),
+      url: '/game/'+gameId,
       type: 'GET',
       dataType: 'json'
     }).done(function(response){
-      console.log(response);
-      // appendPastPlayers(response);
+      appendPastPlayers(response, gameId);
     }).fail(function(response){
       console.log('FAIL');
     });
@@ -22,6 +23,11 @@ $(document).ready(function() {
   //   };
   // };
 
-function appendPastPlayers(players){
+function appendPastPlayers(players, id){
+  gameElement = $("ul").find("[data-gameid='" + id + "']")
+  gameElement.append('</a><br>')
+  for(i=0; i<players.length; i++){
+    gameElement.append(players[i].name+ ', ');
+  }
 
 }
