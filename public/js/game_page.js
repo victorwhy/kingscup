@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('li a').click(function(event){
+  $('li.clickable').click(function(event){
     event.preventDefault;
     gameId= $(this).data("gameid");
     console.log(gameId);
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 function appendPastPlayers(players, id){
   gameElement = $("ul").find("[data-gameid='" + id + "']")
-  gameElement.append('</a><br>')
+  gameElement.append('<br>Players: ')
   for(i=0; i<players.length; i++){
     gameElement.append(players[i].name+ ', ');
   }
