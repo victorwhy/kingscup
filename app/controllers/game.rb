@@ -19,7 +19,7 @@ post '/game' do
   @game.update_rules(new_rules, Card.all)
   
   @game.cards << Card.all
-  session[:game] = true
+  session[:game] = @game.id
   # @game.to_json
   erb :'/game/play'
 end
