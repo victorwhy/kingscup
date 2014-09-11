@@ -25,10 +25,39 @@ body {
   list-style-type: none;
 }
 
-#playingfield{
+#playingfield {
+  float: left;
+  height: 100%;
 }
 
+.card {
 
+}
+
+.card img {
+  width: 10em;
+  height: 14em;
+}
+
+#backcard {
+  width: 10em;
+  height: 14em;
+  margin-left: 10em;
+  margin-top: 8em;
+  border-style: solid;
+  border-color: white;
+  float: left;
+}
+
+#frontcard { 
+  width: 10em;
+  height: 14em;
+  margin-left: 5em;
+  margin-top: 8em;
+  border-style: solid;
+  border-color: white;
+  float: left;
+}
 
 .container {
   height: auto;
