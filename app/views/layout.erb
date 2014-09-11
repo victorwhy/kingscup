@@ -21,8 +21,12 @@
   <% if session[:current_user] %>
       <%= erb :"_navbar" %>
   <% end %>
+  <% if session[:game] %>
+    <%= yield %>
+  <% else %>
   <div class="container">    
     <%= yield %>
   </div>
+  <% end %>
 </body>
 </html>
