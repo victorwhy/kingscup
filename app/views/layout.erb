@@ -19,6 +19,9 @@
 </head>
 <body>
   <div class="container">
+    <% if session[:current_user] %>
+      <erb: >
+    <% end %>
     <%= yield %>
   </div>
 </body>

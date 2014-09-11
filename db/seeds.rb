@@ -6,9 +6,9 @@ suits.each do |suit|
   end
 end
 
-Game.create
+game = Game.create
 
-Game.update_cards(Card.all)
+game.update_cards(Game.rules, Card.all)
 
 Player.create(name: "Victor", email: "victor@dbc.com")
 Player.create(name: "Shiraj", email: "shiraj@dbc.com")

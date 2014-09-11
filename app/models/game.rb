@@ -6,7 +6,7 @@ class Game < ActiveRecord::Base
   belongs_to :user
 
 
-  @@rules = {
+  @@default_rules = {
     1 => "Waterfall",
     2 => "You - pick someone to drink",
     3 => "Me - you have to drink",
@@ -19,19 +19,20 @@ class Game < ActiveRecord::Base
     10 => "Categories",
     11 => "Make a rule",
     12 => "Questions",
-    13 => "Pour some into the drink!"
+    13 => "Pour some into the King's cup!"
   }
 
-  def self.update_rules(rules)
-    @@rules = rules
+  def self.default_rules
+    @@default_rules
   end
 
-  def self.update_cards(cards)
-    cards.each do |card|
-      card.rule = @@rules[card.value]
+
+  def update_rules(rules)
+    @rules = rules
+    Cards.all.each do |card|
+      card.rule = rules[card.value]
       card.save
     end
   end
-
 end
 
