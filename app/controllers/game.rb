@@ -38,7 +38,9 @@ get '/game/new' do
   erb :'/game/new'
 end
 
-
+get '/game/test' do
+  erb :'/game/play'
+end
 
 # players.each_with_object {} do |player, game_object|
 #   game_object << {(player.name): player.cards}
