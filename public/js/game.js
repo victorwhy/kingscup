@@ -36,6 +36,23 @@ Array.prototype.shuffle = function() {
   return this;
 }
 
+function Player(player){
+  this.name = player.name;
+  this.id = player.id;
+  this.cards = [];
+}
+
+function Card(suit, value){
+  this.suit = suit;
+  this.value = value;
+  this.imgValue = alpha(value);
+}
+
+function createPlayers(newplayers){
+  for(i=0; i<newplayers.length; i++){
+    players.push(new Player(newplayers[i]));
+  };
+}
 
 for(i=1; i<=13; i++){
   gameArray.push(new Card('C', i));
