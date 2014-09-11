@@ -62,8 +62,8 @@ post '/game/:id' do
       sessions[0].update(player_id: player_id)
     end
   end
-  binding.pry
-  redirect '/game/finish'
+  # binding.pry
+  # redirect '/game/finish'
 end
 
 # players.each_with_object {} do |player, game_object|

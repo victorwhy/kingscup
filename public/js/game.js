@@ -99,10 +99,9 @@ function gameOver(){
     $.ajax({
       url: '/game/'+$('#playscreen').data("gameid"),
       type: 'POST',
-      dataType: 'json',
       data: {players: players}
     }).done(function(response){
-      
+      window.location.replace("/game/finish");
     }).fail(function(response){
       console.log('FAIL');
     });
