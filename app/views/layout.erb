@@ -18,10 +18,10 @@
   <title></title>
 </head>
 <body>
-  <div class="container">
-    <% if session[:current_user] %>
-      <erb: >
-    <% end %>
+  <% if session[:current_user] %>
+      <%= erb :"_navbar" %>
+  <% end %>
+  <div class="container">    
     <%= yield %>
   </div>
 </body>
