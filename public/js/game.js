@@ -1,10 +1,28 @@
 $(document).ready(function() {
+  $.ajax({
+    url: '/game/'+$('#playscreen').data("gameid"),
+    type: 'GET',
+    dataType: 'json'
+  }).done(function(response){
+    console.log(response);
+    createPlayers(response);
+  }).fail(function(response){
+    console.log('FAIL');
+  });
+
   $('#backcard').click(function(){
+    playerHover(currentPlayer);
     $('#frontcard').html(nextCard());
+    gameOver();
+    incrementPlayer();
   });
 });
 
 var gameArray = [];
+var players = [];
+var kings = [];
+currentPlayer = 0;
+
 
 Array.prototype.shuffle = function() {
   var i = this.length, j, temp;
