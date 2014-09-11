@@ -4,7 +4,6 @@ $(document).ready(function() {
     type: 'GET',
     dataType: 'json'
   }).done(function(response){
-    console.log(response);
     createPlayers(response);
   }).fail(function(response){
     console.log('FAIL');
@@ -79,7 +78,6 @@ function incrementPlayer(){
     currentPlayer = 0;
   }else{
     currentPlayer++;
-    console.log(currentPlayer);
   }
 };
 
