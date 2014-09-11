@@ -26,10 +26,8 @@ class Game < ActiveRecord::Base
     @@default_rules
   end
 
-
-  def update_rules(rules)
-    @rules = rules
-    Cards.all.each do |card|
+  def update_rules(rules, cards)
+    cards.each do |card|
       card.rule = rules[card.value]
       card.save
     end

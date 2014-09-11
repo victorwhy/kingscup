@@ -4,25 +4,11 @@
 <h3>Adjust Rules</h3>
 <form id="newgame" action="/game" method="post">
   <label for="ace">Ace: Waterfall - unchangeable!</label>
-  <input type="hidden" name ="newrules[1]" value="Waterfall" requried><br>
-  <label for="2">2: </label>
-  <input type="text" name ="newrules[2]" value="You - pick someone to drink" requried><br>
-  <label for="3">3: </label>
-  <input type="text" name ="newrules[3]" value="Me - you have to drink" requried><br>
-  <label for="4">4: </label>
-  <input type="text" name ="newrules[4]" value="Floor - last person to touch floor drinks" requried><br>
-  <label for="5">5: </label>
-  <input type="text" name ="newrules[5]" value="Guys - men have to drink" requried><br>
-  <label for="6">6: </label>
-  <input type="text" name ="newrules[6]" value="Chicks - women have to drink" requried><br>
-  <label for="7">7: </label>
-  <input type="text" name ="newrules[7]" value="Heaven - last person to point up drinks" requried><br>
-  <label for="8">8: </label>
-  <input type="text" name ="newrules[8]" value="Mate - pick someone and they will drink whenver you drink" requried><br>
-  <label for="9">9: </label>
-  <input type="text" name ="newrules[9]" value="Rhyme" requried><br>
-  <label for="10">10: </label>
-  <input type="text" name ="newrules[10]" value="Categories" requried><br>
+  <input type="hidden" name ="newrules[1]" value="<%= @rules[1] %>" requried><br>
+  <% for i in 2..10 %>
+    <label for="<%=i%>"><%=i%>: </label>
+    <input type="text" name ="newrules[<%=i%>]" value="<%= @rules[i] %>" requried><br>
+  <% end %>
   <label for="jack">Jack: </label>
   <input type="text" name ="newrules[11]" value="Make a rule" requried><br>
   <label for="queen">Queen: </label>

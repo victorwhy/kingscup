@@ -3,20 +3,25 @@ get '/game' do
 end
 
 post '/game' do
-  binding.pry
 
-  @game = Game.create
+  @game = Game.create(user_id: session[:current_user])
   
   params[:player].each do |num, player|
     @game.players << Player.find_or_create_by(name: player)
   end
 
-  @new_rules = {}
+  new_rules = {}
 
   params[:newrules].each do |key, rule|
-    @new_rules[key.to_i] = rule
+    new_rules[key.to_i] = rule
   end
 
+  @game.update_rules(new_rules, Card.all)
+  
+  @game.cards << Card.all
+  session[:game] = true
+  # @game.to_json
+  erb :'/game/play'
 end
 
 post '/game/:id' do
@@ -29,7 +34,7 @@ post '/game/:id' do
 end
 
 get '/game/new' do
-  # @rules = Game.default_rules
+  @rules = Game.default_rules
   erb :'/game/new'
 end
 
