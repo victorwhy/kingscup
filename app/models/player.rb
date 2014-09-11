@@ -3,5 +3,5 @@ class Player < ActiveRecord::Base
   has_many :games, through: :sessions
   has_many :cards, through: :sessions
 
-  validates :name, :email, presence: true
+  validates :name, presence: true
 end
