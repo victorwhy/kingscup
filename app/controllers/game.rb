@@ -24,15 +24,6 @@ post '/game' do
   erb :'/game/play'
 end
 
-post '/game/:id' do
-  game = Game.find(params[:id])
-  players = game.players
-  @game_object = players.each_with_object({}) do |player, game_hash|
-    game_hash[player.name] = player.cards
-  end
-  @game_object.to_json
-end
-
 get '/game/new' do
   @rules = Game.default_rules
   erb :'/game/new'
@@ -40,6 +31,31 @@ end
 
 get '/game/test' do
   erb :'/game/play'
+end
+
+get '/game/:id' do
+  game = Game.find(params[:id])
+  @players = game.players
+  @players.to_json
+
+  # @game_object = players.each_with_object({}) do |player, game_hash|
+  #   game_hash[player.name] = player.cards
+  # end
+  # @game_object.to_json
+end
+
+post '/game/:id' do
+  binding.pry
+  # for i in 0..(params[:players].length-1)
+  #   player_id = params[:players][i.to_s][:id].to_i
+  #   cards = params[:players][i.to_s][:cards]
+  #   cards.each do |card|
+  #     card_id = find_card(card).id
+  #     session = Session.find_by(game_id: session[:game], card_id: card_id, player.id)
+  #   end
+  # end
+
+  # redirect '/game'
 end
 
 # players.each_with_object {} do |player, game_object|
