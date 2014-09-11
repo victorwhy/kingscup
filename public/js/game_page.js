@@ -3,23 +3,25 @@ $(document).ready(function() {
     event.preventDefault
     $.ajax({
       url: '/game/'+$(this).data("gameid"),
-      type: 'POST',
-      data: $(this).serialize(),
+      type: 'GET',
       dataType: 'json'
-    }).done(function(responseData){
-      // for(i=1; i<=responseData.length; i++) {
-      //   console.log(responseData[i]);
-      // };
-      appendPastGame(responseData);
-    }).fail(function(responseData){
+    }).done(function(response){
+      console.log(response);
+      // appendPastPlayers(response);
+    }).fail(function(response){
       console.log('FAIL');
     });
   })
 
 });
 
-  function appendPastGame(game_object) {
-    for(i=1; i<=game_object.length; i++) {
-      console.log(game_object[i]);
-    };
-  };
+  // at some point pass the whole game object
+  // function appendPastGame(game_object) {
+  //   for(i=1; i<=game_object.length; i++) {
+  //     console.log(game_object[i]);
+  //   };
+  // };
+
+function appendPastPlayers(players){
+
+}
