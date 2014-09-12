@@ -37,6 +37,11 @@ end
 #   erb :'/game/play'
 # end
 
+get '/game/test' do
+  erb :'/game/play'
+end
+
+
 get '/game/:id' do
   game = Game.find(params[:id])
   @players = game.players

@@ -8,7 +8,7 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'json'
     }).done(function(response){
-      appendPastPlayers(response, gameId);
+      showPastPlayers(response, gameId);
     }).fail(function(response){
       console.log('FAIL');
     });
@@ -23,11 +23,13 @@ $(document).ready(function() {
   //   };
   // };
 
-function appendPastPlayers(players, id){
-  gameElement = $("ul").find("[data-gameid='" + id + "']")
-  gameElement.append('<br>Players: ')
+function showPastPlayers(players, id){
+  $('.showplayers').hide('slow');
+  gameElement = $("ul").find("[data-gameid='" + id + "']");
+  var playerList = '';
   for(i=0; i<players.length; i++){
-    gameElement.append(players[i].name+ ', ');
+    playerList += players[i].name+ ', ';
   }
-
+  gameElement.append('<div class="showplayers" id="show' + id + '" style="display: none;"><br>Players: '+ playerList);
+  $('#show'+id).show('slow');
 }
