@@ -1,0 +1,8 @@
+<div class="navbar">
+  <ul class="navbuttons">
+    <li><a href="/game">KINGS CUP</a></li>
+    <li class="account"><a href="/sign_out">SIGN OUT</a></li>
+    <li class="account"><%= User.find(session[:current_user]).name%></li>
+    <li class="account"><img src = "<%=User.find(session[:current_user]).google_pic%>"></li>
+  </ul>
+</div>

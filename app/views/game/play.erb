@@ -1,0 +1,35 @@
+<script src="/js/game.js"></script>
+<div id="playscreen" data-gameid="<%=session[:game]%>">
+  <div id="sidebar">
+    <div id="rules">
+      Current rules:
+      <ul>
+        <% for i in 1..13 %>
+          <li id="<%=i%>"><%= Card.find(i).rule %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="players">
+      Current Players:
+      <ul>
+        <% Game.find(session[:game]).players.each do |player| %>
+          <li id="<%= player.id %>"><%= player.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div id="playingfield">
+    <div class="card">
+      <div id="backcard">
+        <!-- <object id="E" data="/images/Blue_Back.svg">
+          <param name="src" value="/images/Blue_Back.svg">
+        </object> -->
+        <img src = "/images/blue_test.svg">
+      </div>
+
+      <div id="frontcard">
+      </div>
+    </div>
+  </div>
+</div>

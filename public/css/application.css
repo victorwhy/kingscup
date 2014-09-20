@@ -1,0 +1,132 @@
+html{
+  height: 100%;
+}
+
+body {
+  background-color: #368000;
+  height: 100%;
+}
+
+.show_games li:hover{
+  color: red;
+  font-weight: bold;
+}
+
+.show_games li .showplayers:hover{
+  color: black;
+  font-weight: normal;
+}
+
+.showplayers {
+  padding-left: 2em;
+}
+
+#playscreen {
+  margin-top: 3em;
+  color: white;
+  height: 100%;
+}
+
+#sidebar {
+  padding: 1em;
+  background-color: black;
+  float: left;
+  width: 30%;
+  height: 100%;
+}
+
+#sidebar ul {
+  list-style-type: none;
+}
+
+#playingfield {
+  float: left;
+  height: 100%;
+}
+
+.card {
+
+}
+
+.card img {
+  width: 10em;
+  height: 14em;
+}
+
+#backcard {
+  width: 10em;
+  height: 14em;
+  margin-left: 10em;
+  margin-top: 8em;
+  border: 2px solid;
+  border-color: white;
+  border-radius: 10px;
+  float: left;
+}
+
+#frontcard { 
+  width: 10em;
+  height: 14em;
+  margin-left: 5em;
+  margin-top: 8em;
+  border: 2px solid;
+  border-color: white;
+  border-radius: 10px;
+  float: left;
+}
+
+.container {
+  height: auto;
+  margin: 60px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  background-color: white;
+}
+
+th {
+  text-align: left;
+}
+
+li{
+  list-style-type: none;
+}
+
+.account{
+  top: 0;
+  margin: 0;
+  padding: 0;
+  float: right;
+  margin-right: 15px;
+}
+
+.navbuttons li {
+  display: inline-block;
+}
+
+.navbuttons a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 
+}
+
+.navbuttons a:hover{
+  color: #AAEFFF;
+}
+
+.navbuttons li img{
+  height: 3em;
+  margin: 0;
+  margin-top: -1em;
+}
+
+.navbar {
+  background-color: black;
+  color: white;
+  height: 3em;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  text-align: left;
+}

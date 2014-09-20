@@ -1,0 +1,14 @@
+<script src="/js/game_page.js"></script>
+
+<div class="create_game">
+  <p><a href="/game/new">Start new game!</a></p>
+</div>
+
+<div class="show_games">
+  <p>See past games:</p>
+  <% Game.all.each do |game| %>
+  <ul>
+    <li class="clickable" data-gameid="<%=game.id%>">Game # <%=game.id%> - Created by <%=game.user.name%> </li>
+  </ul>
+  <% end %>
+</div>
