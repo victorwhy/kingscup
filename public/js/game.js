@@ -22,7 +22,6 @@ var players = [];
 var kings = [];
 currentPlayer = 0;
 
-
 Array.prototype.shuffle = function() {
   var i = this.length, j, temp;
   if ( i == 0 ) return this;
