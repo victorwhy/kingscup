@@ -5,7 +5,7 @@
       Current rules:
       <ul>
         <% for i in 1..13 %>
-          <li id="<%=i%>"><%= Card.find(i).rule %></li>
+          <li id="<%=i%>"><%=i%>. <%= Card.find(i).rule %></li>
         <% end %>
       </ul>
     </div>
