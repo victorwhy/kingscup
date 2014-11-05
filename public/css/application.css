@@ -17,6 +17,10 @@ body {
   font-weight: normal;
 }
 
+input #inputrules{
+  size: 40;
+}
+
 .showplayers {
   padding-left: 2em;
 }
