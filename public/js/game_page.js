@@ -16,13 +16,6 @@ $(document).ready(function() {
 
 });
 
-  // at some point pass the whole game object
-  // function appendPastGame(game_object) {
-  //   for(i=1; i<=game_object.length; i++) {
-  //     console.log(game_object[i]);
-  //   };
-  // };
-
 function showPastPlayers(players, id){
   $('.showplayers').hide('slow');
   gameElement = $("ul").find("[data-gameid='" + id + "']");
@@ -30,6 +23,7 @@ function showPastPlayers(players, id){
   for(i=0; i<players.length; i++){
     playerList += players[i].name+ ', ';
   }
-  gameElement.append('<div class="showplayers" id="show' + id + '" style="display: none;"><br>Players: '+ playerList);
+  playerList = playerList.substring(0, playerList.length - 2);
+  gameElement.append('<div class="showplayers" id="show' + id + '" style="display: none;">'+ playerList);
   $('#show'+id).show('slow');
 }
