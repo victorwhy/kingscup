@@ -14,7 +14,7 @@ class Game < ActiveRecord::Base
     5 => "Guys - men have to drink",
     6 => "Chicks - women have to drink",
     7 => "Heaven - last person to point up drinks",
-    8 => "Mate - pick someone and they will drink whenver you drink",
+    8 => "Mate - pick someone and they drink when you drink",
     9 => "Rhyme",
     10 => "Categories",
     11 => "Make a rule",
