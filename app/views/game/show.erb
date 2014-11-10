@@ -1,14 +1,18 @@
 <script src="/js/game_page.js"></script>
 
 <div class="create_game">
-  <p><a href="/game/new">Start new game!</a></p>
+	<br>
+  <p><a href="/game/new" class="button-link">Start new game!</a></p>
 </div>
 
 <div class="show_games">
-  <p>See past games:</p>
-  <% Game.all.each do |game| %>
+  <h2>Your Past Games</h2>
   <ul>
-    <li class="clickable" data-gameid="<%=game.id%>">Game # <%=game.id%> - Created by <%=game.user.name%> </li>
-  </ul>
+  <% counter=0 %>
+  <% Game.all.each_with_index do |game|%>
+  	<% if session[:current_user] == game.user_id %>
+    	<li class="clickable" data-gameid="<%=game.id%>">Game <%=counter+=1%> - Created <%=game.created_at.to_s[0..9]%> </li>
+    <% end%>
   <% end %>
+  </ul>
 </div>
