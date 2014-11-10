@@ -1,26 +1,30 @@
 <script src="/js/new_game.js"></script>
-
-<h2>Create Game</h2>
-<h3>Adjust Rules</h3>
-<form id="newgame" action="/game" method="post">
-  <label for="ace">Ace: Waterfall - unchangeable!</label>
-  <input type="hidden" name ="newrules[1]" value="<%= @rules[1] %>" requried><br>
-  <% for i in 2..10 %>
-    <label for="<%=i%>"><%=i%>: </label>
-    <input size="50" type="text" name ="newrules[<%=i%>]" value="<%= @rules[i] %>" requried><br>
-  <% end %>
-  <label for="jack">Jack: </label>
-  <input size="50" type="text" name ="newrules[11]" value="Make a rule" requried><br>
-  <label for="queen">Queen: </label>
-  <input size="50" type="text" name ="newrules[12]" value="Questions" requried><br>
-  <label for="king">King: Put some beer in the cup! - unchangeable! </label>
-  <input size="50" type="hidden" name ="newrules[13]" value="Pour some into the King's cup!" requried><br>
-<br>
-<h3>Add players</h3>
-  <input type="text" name="player[1]" value="<%=User.find(session[:current_user]).name%>">
-  <div class="player_container">
-  </div>
-  <button class='add_players'>Add Player</button>
-<br><br><br>
-<input type="submit" value="New Game!">
-</form>
+<div class="newgame">
+  <h2>Create Game</h2>
+  <h3>Adjust Rules</h3>
+  <form action="/game" method="post">
+    <div id="rules">
+      <label for="ace">A:</label> Waterfall - UNCHANGEABLE
+      <input type="hidden" name ="newrules[1]" value="<%= @rules[1] %>" requried><br>
+      <% for i in 2..10 %>
+        <label for="<%=i%>"><%=i%>:</label>
+        <input size="46" type="text" name ="newrules[<%=i%>]" value="<%= @rules[i] %>" requried><br>
+      <% end %>
+      <label for="jack">J:</label>
+      <input size="46" type="text" name ="newrules[11]" value="Make a rule" requried><br>
+      <label for="queen">Q:</label>
+      <input size="46" type="text" name ="newrules[12]" value="Questions" requried><br>
+      <label for="king">K:</label> Put some beer in the cup! - UNCHANGEABLE
+      <input size="46" type="hidden" name ="newrules[13]" value="Pour some into the King's cup!" requried><br>
+    </div>
+  <br>
+  <h3>Add players</h3>
+    <input type="text" name="player[1]" value="<%=User.find(session[:current_user]).name%>">
+    <div class="player_container">
+    </div>
+    <br>
+    <button class='add_players'>Add Player</button>
+  <br><br><br>
+  <input type="submit" value="New Game!">
+  </form>
+</div>
