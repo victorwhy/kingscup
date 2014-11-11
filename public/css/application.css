@@ -49,7 +49,7 @@ input #inputrules{
   padding: 1em;
   background-color: black;
   float: left;
-  width: 30%;
+  width: 35%;
   height: 100%;
 }
 
@@ -134,8 +134,9 @@ th {
   text-align: left;
 }
 
-li{
+#sidebar li{
   list-style-type: none;
+  padding-left: 1em;
 }
 
 .account{
