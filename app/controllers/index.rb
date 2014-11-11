@@ -1,4 +1,4 @@
-redirect_uri = "http://kings-cup.herokuapp.com/oauth2callback"
+redirect_uri = "https://kings-cup.herokuapp.com/oauth2callback"
 SCOPES = "https://www.googleapis.com/auth/plus.login"
 
 get '/' do
