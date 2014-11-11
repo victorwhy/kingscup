@@ -20,7 +20,6 @@ post '/game' do
   
   @game.cards << Card.all
   session[:game] = @game.id
-  # @game.to_json
   erb :'/game/play'
 end
 
@@ -33,9 +32,6 @@ get '/game/finish' do
   session[:game] = nil
   erb :'/game/show'
 end
-# get '/game/test' do
-#   erb :'/game/play'
-# end
 
 get '/game/test' do
   erb :'/game/play'
@@ -46,11 +42,6 @@ get '/game/:id' do
   game = Game.find(params[:id])
   @players = game.players
   @players.uniq.to_json
-
-  # @game_object = players.each_with_object({}) do |player, game_hash|
-  #   game_hash[player.name] = player.cards
-  # end
-  # @game_object.to_json
 end
 
 post '/game/:id' do
@@ -67,18 +58,4 @@ post '/game/:id' do
       sessions[0].update(player_id: player_id)
     end
   end
-  # binding.pry
-  # redirect '/game/finish'
 end
-
-# players.each_with_object {} do |player, game_object|
-#   game_object << {(player.name): player.cards}
-# end.to_json
-
-# arr = []
-# collection.each do |x|
-#   arr << x
-# end
-# arr
-
-# collection.each_with_object [] { |x, arr| arr << x }.to_json
