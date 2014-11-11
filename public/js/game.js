@@ -22,16 +22,16 @@ var players = [];
 var kings = [];
 currentPlayer = 0;
 
-Array.prototype.shuffle = function() {
-  var i = this.length, j, temp;
-  if ( i == 0 ) return this;
+function Shuffle(deck) {
+  var i = deck.length, j, temp;
+  if ( i == 0 ) return deck;
   while ( --i ) {
      j = Math.floor( Math.random() * ( i + 1 ) );
-     temp = this[i];
-     this[i] = this[j];
-     this[j] = temp;
+     temp = deck[i];
+     deck[i] = deck[j];
+     deck[j] = temp;
   }
-  return this;
+  return deck;
 }
 
 function Player(player){
@@ -59,7 +59,7 @@ for(i=1; i<=13; i++){
   gameArray.push(new Card('S', i));
 };
 
-gameArray = gameArray.shuffle()
+gameArray = Shuffle(gameArray);
 
 function nextCard(){
   card = gameArray.pop();
