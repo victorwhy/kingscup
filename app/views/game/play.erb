@@ -5,7 +5,18 @@
       Current rules:
       <ul>
         <% for i in 1..13 %>
-          <li id="<%=i%>"><%=i%>. <%= Card.find(i).rule %></li>
+          <% if i == 1 %>
+            <% numlabel = 'A'%>
+          <% elsif i == 11 %>
+            <% numlabel = 'J'%>
+          <% elsif i == 12 %>
+            <% numlabel = 'Q'%>
+          <% elsif i == 13 %>
+            <% numlabel = 'K'%>
+          <% else %>
+            <% numlabel = i %>
+          <% end %>  
+          <li id="<%=i%>"><%=numlabel%>. <%= Card.find(i).rule %></li>
         <% end %>
       </ul>
     </div>
