@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var numofplayers = 2; 
 
-  $('button.add_players').click(function(event){
+  $('button.button-link').click(function(event){
     event.preventDefault();
     $('.player_container').append(addPlayer(numofplayers));
     numofplayers++;
